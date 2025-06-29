@@ -25,38 +25,71 @@ It supports essential eCommerce functionalities such as product management, user
 
 ## Project Structure
 
-db/            # Database files
-migrations/    # Database migration files
-dist/          # Compiled output
-node_modules/
+\
+db/                                        # Database files
+migrations/                                # Database migration files
+dist/                                      # Compiled output
+node_modules/                              # Node.js dependencies
 src/
-├── auth/ 
-│ ├── dto/
+├── auth/                                  # Authentication module
+│ ├── dto/                                 # Auth data transfer objects
+│ ├── entities/                            # Auth entities
 │ ├── auth.controller.ts
 │ ├── auth.module.ts
 │ └── auth.service.ts
 │
-├── categories/
+├── categories/                            # Product categories management
+│ ├── dto/                                 # Category DTOs
+│ ├── entities/                            # Category entities
+│ ├── categories.controller.ts
+│ ├── categories.module.ts
+│ └── categories.service.ts
 │
-├── orders/
+├── orders/                                # Order processing
+│ ├── dto/                                 # Order DTOs
+│ ├── entities/                            # Order entities
+│ ├── enums/                               # Order enums
+│ ├── orders.controller.ts
+│ ├── orders.module.ts
+│ └── orders.service.ts
 │
-├── products/
+├── products/                              # Product management
+│ ├── dto/                                 # Product DTOs
+│ ├── entities/                            # Product entities
+│ ├── products.controller.ts
+│ ├── products.module.ts
+│ └── products.service.ts
 │
-├── reviews/
+├── reviews/                               # Product reviews
+│ ├── dto/                                 # Review DTOs
+│ ├── entities/                            # Review entities
+│ ├── reviews.controller.ts
+│ ├── reviews.module.ts
+│ └── reviews.service.ts
 │
-├── user/
+├── user/                                  # User management
+│ ├── dto/                                 # User DTOs
+│ ├── entities/                            # User entities
+│ ├── user.controller.ts
+│ ├── user.module.ts
+│ └── user.service.ts
 │
-├── utility/                           # Shared utilities and core functionality
-│ ├── common/                          # Common utilities and shared types
+├── utility/                               # Shared utilities and core functionality
+│ ├── common/                              # Common utilities and shared types
+│ │ └── user-roles.enum.ts                 # User role definitions (Admin, Customer, etc.)
 │ │
-│ ├── decorators/                      # Custom parameter and method decorators
+│ ├── decorators/                          # Custom parameter and method decorators
+│ │ ├── authorize-roles.decorator.ts       # Role-based access control decorator
+│ │ └── current-user.decorator.ts          # Injects current user in controllers
 │ │
-│ ├── guards/                          # Authentication and authorization guards
+│ ├── guards/                              # Authentication and authorization guards
+│ │ ├── authentication.guard.ts            # Verifies JWT and authentication
+│ │ └── authorization.guard.ts             # Checks user roles and permissions
 │ │
-│ └── middlewares/                     # Request processing middlewares
-├── app.module.ts                      # Root application module
-└── main.ts                            # Application entry point
-
+│ └── middlewares/                         # Request processing middlewaresAdd commentMore actions
+│   └── current-user.middleware.ts         # Attaches user to request object
+├── app.module.ts                          # Root application module
+└── main.ts                                # Application entry point
 ## 🌐 API Endpoints
 
 ### Authentication
