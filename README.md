@@ -30,65 +30,65 @@ migrations/                                # Database migration files
 dist/                                      # Compiled output
 node_modules/                              # Node.js dependencies
 src/
-├── auth/                                  # Authentication module
-│ ├── dto/                                 # Auth data transfer objects
-│ ├── entities/                            # Auth entities
+├── auth/ 
+│ ├── dto/
+│ ├── entities/ 
 │ ├── auth.controller.ts
 │ ├── auth.module.ts
 │ └── auth.service.ts
 │
-├── categories/                            # Product categories management
-│ ├── dto/                                 # Category DTOs
-│ ├── entities/                            # Category entities
+├── categories/
+│ ├── dto/
+│ ├── entities/
 │ ├── categories.controller.ts
 │ ├── categories.module.ts
 │ └── categories.service.ts
 │
-├── orders/                                # Order processing
-│ ├── dto/                                 # Order DTOs
-│ ├── entities/                            # Order entities
-│ ├── enums/                               # Order enums
+├── orders/
+│ ├── dto/
+│ ├── entities/
+│ ├── enums/                          
 │ ├── orders.controller.ts
 │ ├── orders.module.ts
 │ └── orders.service.ts
 │
-├── products/                              # Product management
-│ ├── dto/                                 # Product DTOs
-│ ├── entities/                            # Product entities
+├── products/
+│ ├── dto/
+│ ├── entities/
 │ ├── products.controller.ts
 │ ├── products.module.ts
 │ └── products.service.ts
 │
-├── reviews/                               # Product reviews
-│ ├── dto/                                 # Review DTOs
-│ ├── entities/                            # Review entities
+├── reviews/
+│ ├── dto/
+│ ├── entities/ 
 │ ├── reviews.controller.ts
 │ ├── reviews.module.ts
 │ └── reviews.service.ts
 │
-├── user/                                  # User management
-│ ├── dto/                                 # User DTOs
-│ ├── entities/                            # User entities
+├── user/
+│ ├── dto/
+│ ├── entities/
 │ ├── user.controller.ts
 │ ├── user.module.ts
 │ └── user.service.ts
 │
-├── utility/                               # Shared utilities and core functionality
-│ ├── common/                              # Common utilities and shared types
-│ │ └── user-roles.enum.ts                 # User role definitions (Admin, Customer, etc.)
+├── utility/                           # Shared utilities and core functionality
+│ ├── common/                          # Common utilities and shared types
+│ │ └── user-roles.enum.ts             # User role definitions (Admin, Customer, etc.)
 │ │
-│ ├── decorators/                          # Custom parameter and method decorators
-│ │ ├── authorize-roles.decorator.ts       # Role-based access control decorator
-│ │ └── current-user.decorator.ts          # Injects current user in controllers
+│ ├── decorators/                      # Custom parameter and method decorators
+│ │ ├── authorize-roles.decorator.ts   # Role-based access control decorator
+│ │ └── current-user.decorator.ts      # Injects current user in controllers
 │ │
-│ ├── guards/                              # Authentication and authorization guards
-│ │ ├── authentication.guard.ts            # Verifies JWT and authentication
-│ │ └── authorization.guard.ts             # Checks user roles and permissions
+│ ├── guards/                          # Authentication and authorization guards
+│ │ ├── authentication.guard.ts        # Verifies JWT and authentication
+│ │ └── authorization.guard.ts         # Checks user roles and permissions
 │ │
-│ └── middlewares/                         # Request processing middlewares
-│   └── current-user.middleware.ts         # Attaches user to request object
-├── app.module.ts                          # Root application module
-└── main.ts                                # Application entry point
+│ └── middlewares/                     # Request processing middlewares
+│   └── current-user.middleware.ts     # Attaches user to request object
+├── app.module.ts                      # Root application module
+└── main.ts                            # Application entry point
 
 ## 🌐 API Endpoints
 
