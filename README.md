@@ -1,98 +1,152 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# E-commerce With Nest.js
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A powerful RESTful API for an eCommerce platform, built with Node.js and Nest.
+It supports essential eCommerce functionalities such as product management, user authentication and order processing.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🔑 Key Features
 
-## Description
+- **Full CRUD operations** for products, users, orders, categories and reviews
+- **User authentication** with JWT-based authorization
+- **Role-based access control (RBAC)** for admin and customers
+- **Order tracking and status updates**
+- **Class-Calidator Package** for input validation
+- **RESTful endpoints** following best practices
+- **Error handling middleware** for better API stability
+- **Modular and scalable architecture**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠 Tech Stack
 
-## Project setup
+- Node.js
+- Nest.js
+- PostgreSQL with TypeORM 
+- JWT for authentication
+- Class-validator
+- REST API principles
 
-```bash
-$ npm install
-```
+## Project Structure
 
-## Compile and run the project
+db/                                        # Database files
+migrations/                                # Database migration files
+dist/                                      # Compiled output
+node_modules/                              # Node.js dependencies
+src/
+├── auth/                                  # Authentication module
+│ ├── dto/                                 # Auth data transfer objects
+│ ├── entities/                            # Auth entities
+│ ├── auth.controller.ts
+│ ├── auth.module.ts
+│ └── auth.service.ts
+│
+├── categories/                            # Product categories management
+│ ├── dto/                                 # Category DTOs
+│ ├── entities/                            # Category entities
+│ ├── categories.controller.ts
+│ ├── categories.module.ts
+│ └── categories.service.ts
+│
+├── orders/                                # Order processing
+│ ├── dto/                                 # Order DTOs
+│ ├── entities/                            # Order entities
+│ ├── enums/                               # Order enums
+│ ├── orders.controller.ts
+│ ├── orders.module.ts
+│ └── orders.service.ts
+│
+├── products/                              # Product management
+│ ├── dto/                                 # Product DTOs
+│ ├── entities/                            # Product entities
+│ ├── products.controller.ts
+│ ├── products.module.ts
+│ └── products.service.ts
+│
+├── reviews/                               # Product reviews
+│ ├── dto/                                 # Review DTOs
+│ ├── entities/                            # Review entities
+│ ├── reviews.controller.ts
+│ ├── reviews.module.ts
+│ └── reviews.service.ts
+│
+├── user/                                  # User management
+│ ├── dto/                                 # User DTOs
+│ ├── entities/                            # User entities
+│ ├── user.controller.ts
+│ ├── user.module.ts
+│ └── user.service.ts
+│
+├── utility/                               # Shared utilities and core functionality
+│ ├── common/                              # Common utilities and shared types
+│ │ └── user-roles.enum.ts                 # User role definitions (Admin, Customer, etc.)
+│ │
+│ ├── decorators/                          # Custom parameter and method decorators
+│ │ ├── authorize-roles.decorator.ts       # Role-based access control decorator
+│ │ └── current-user.decorator.ts          # Injects current user in controllers
+│ │
+│ ├── guards/                              # Authentication and authorization guards
+│ │ ├── authentication.guard.ts            # Verifies JWT and authentication
+│ │ └── authorization.guard.ts             # Checks user roles and permissions
+│ │
+│ └── middlewares/                         # Request processing middlewares
+│   └── current-user.middleware.ts         # Attaches user to request object
+├── app.module.ts                          # Root application module
+└── main.ts                                # Application entry point
 
-```bash
-# development
-$ npm run start
+## 🌐 API Endpoints
 
-# watch mode
-$ npm run start:dev
+### Authentication
 
-# production mode
-$ npm run start:prod
-```
+| Method | Endpoint                     | Description                              |
+| ------ | -----------------------------| ---------------------------------------- |
+| POST   | /api/v1/auth/signup          | User registration                        |
+| POST   | /api/v1/auth/sigin           | User login and token generation          |
 
-## Run tests
+### Products
 
-```bash
-# unit tests
-$ npm run test
+| Method | Endpoint              | Description                     |
+| ------ | --------------------- | --------------------------------|
+| GET    | /api/v1/products      | Retrieve all products           |
+| GET    | /api/v1/products/:id  | Get single product              |
+| POST   | /api/v1/products      | Add a new product (Admin only)  |
+| PUT    | /api/v1/products/:id  | Update product (Admin only)     |
+| DELETE | /api/v1/products/:id  | Delete product (Admin only)     |
 
-# e2e tests
-$ npm run test:e2e
+### Categories
 
-# test coverage
-$ npm run test:cov
-```
+| Method | Endpoint               | Description                          |
+| ------ | -----------------------| ------------------------------------ |
+| GET    | /api/v1/categories     | Retrieve all categories              |
+| POST   | /api/v1/categories     | Create a new category (Admin only)   |
+| GET    | /api/v1/categories/:id | Get a single category by ID          |
+| PATCH  | /api/v1/categories/:id | Update category details (Admin only) |
+| DELETE | /api/v1/categories/:id | Delete a category (Admin only)       |
 
-## Deployment
+### Reviews
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+| Method | Endpoint                 | Description               |
+| ------ | ------------------------ | --------------------------|
+| GET    | /api/v1/reviews          | Retrieve all reviews      |
+| POST   | /api/v1/reviews          | Create a new review       |
+| GET    | /api/v1/reviews/:id      | Get a single review by ID |
+| DELETE | /api/v1/reviews/:id      | Delete a review           |
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Users
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+| Method | Endpoint          | Description                  |
+| ------ | ------------------| -----------------------------|
+| GET    | /api/v1/users/me  | Retrieve logged-in user data |
+| GET    | /api/v1/users     | Retrieve all users (Admin)   |
+| POST   | /api/v1/users     | Create a new user (Admin)    |
+| GET    | /api/v1/users/:id | Retrieve a single user by ID |
+| PATCH  | /api/v1/users/:id | Update user data             |
+| DELETE | /api/v1/users/:id | Delete user (Admin)          |
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## ✅ Best Practices
 
-## Resources
+- Secure authentication with JWT and password hashing
+- Strict input validation using class-validator
+- Role-based access control for admin and users
+- Modular architecture for scalability
+- Well-documented RESTful endpoints
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+**Developed as a robust foundation for eCommerce API development with Node.js and Nest.**

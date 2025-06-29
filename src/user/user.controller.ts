@@ -23,6 +23,8 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
+  @AuthroizeRoles(Roles.ADMIN)
+  @UseGuards(AuthenticationGuard, AuthorizationGuard)
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
@@ -59,6 +61,8 @@ export class UserController {
   }
 
   @Delete(':userId')
+  @AuthroizeRoles(Roles.ADMIN)
+  @UseGuards(AuthenticationGuard, AuthorizationGuard)
   remove(@Param('userId') userId: string): Promise<{
     statusCode: number;
     status: string;
