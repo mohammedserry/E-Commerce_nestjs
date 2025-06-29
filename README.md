@@ -1,4 +1,4 @@
-# E-commerce With Nest.js
+# 🛒 E-commerce With Nest.js
 
 A powerful RESTful API for an eCommerce platform, built with Node.js and Nest.
 It supports essential eCommerce functionalities such as product management, user authentication and order processing.
