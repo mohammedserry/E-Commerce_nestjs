@@ -23,9 +23,8 @@ It supports essential eCommerce functionalities such as product management, user
 - Class-validator
 - REST API principles
 
-## Project Structure
-
-\
+## 📁 Project Structure
+```
 db/                                        # Database files
 migrations/                                # Database migration files
 dist/                                      # Compiled output
@@ -90,6 +89,7 @@ src/
 │   └── current-user.middleware.ts         # Attaches user to request object
 ├── app.module.ts                          # Root application module
 └── main.ts                                # Application entry point
+```
 ## 🌐 API Endpoints
 
 ### Authentication
