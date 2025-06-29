@@ -25,10 +25,10 @@ It supports essential eCommerce functionalities such as product management, user
 
 ## Project Structure
 
-db/                                        # Database files
-migrations/                                # Database migration files
-dist/                                      # Compiled output
-node_modules/                              # Node.js dependencies
+db/            # Database files
+migrations/    # Database migration files
+dist/          # Compiled output
+node_modules/
 src/
 ├── auth/ 
 │ ├── dto/
@@ -37,11 +37,6 @@ src/
 │ └── auth.service.ts
 │
 ├── categories/
-│ ├── dto/
-│ ├── entities/
-│ ├── categories.controller.ts
-│ ├── categories.module.ts
-│ └── categories.service.ts
 │
 ├── orders/
 │
@@ -53,18 +48,12 @@ src/
 │
 ├── utility/                           # Shared utilities and core functionality
 │ ├── common/                          # Common utilities and shared types
-│ │ └── user-roles.enum.ts             # User role definitions (Admin, Customer, etc.)
 │ │
 │ ├── decorators/                      # Custom parameter and method decorators
-│ │ ├── authorize-roles.decorator.ts   # Role-based access control decorator
-│ │ └── current-user.decorator.ts      # Injects current user in controllers
 │ │
 │ ├── guards/                          # Authentication and authorization guards
-│ │ ├── authentication.guard.ts        # Verifies JWT and authentication
-│ │ └── authorization.guard.ts         # Checks user roles and permissions
 │ │
 │ └── middlewares/                     # Request processing middlewares
-│   └── current-user.middleware.ts     # Attaches user to request object
 ├── app.module.ts                      # Root application module
 └── main.ts                            # Application entry point
 
