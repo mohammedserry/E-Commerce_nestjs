@@ -32,7 +32,6 @@ node_modules/                              # Node.js dependencies
 src/
 ├── auth/ 
 │ ├── dto/
-│ ├── entities/ 
 │ ├── auth.controller.ts
 │ ├── auth.module.ts
 │ └── auth.service.ts
@@ -45,33 +44,12 @@ src/
 │ └── categories.service.ts
 │
 ├── orders/
-│ ├── dto/
-│ ├── entities/
-│ ├── enums/                          
-│ ├── orders.controller.ts
-│ ├── orders.module.ts
-│ └── orders.service.ts
 │
 ├── products/
-│ ├── dto/
-│ ├── entities/
-│ ├── products.controller.ts
-│ ├── products.module.ts
-│ └── products.service.ts
 │
 ├── reviews/
-│ ├── dto/
-│ ├── entities/ 
-│ ├── reviews.controller.ts
-│ ├── reviews.module.ts
-│ └── reviews.service.ts
 │
 ├── user/
-│ ├── dto/
-│ ├── entities/
-│ ├── user.controller.ts
-│ ├── user.module.ts
-│ └── user.service.ts
 │
 ├── utility/                           # Shared utilities and core functionality
 │ ├── common/                          # Common utilities and shared types
